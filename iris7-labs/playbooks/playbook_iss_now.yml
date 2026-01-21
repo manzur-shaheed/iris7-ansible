@@ -1,0 +1,13 @@
+- name: CHALLENGE - ISS current location with ansible.builtin.uri
+  hosts: localhost
+  connection: local
+  gather_facts: false
+
+  tasks:
+    - name: GET ISS current location
+      ansible.builtin.uri:
+        url: "http://api.open-notify.org/iss-now.json"
+        method: GET
+        return_content: true
+        status_code:
+          - 200
